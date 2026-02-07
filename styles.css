@@ -30,6 +30,7 @@ body {
         opacity: 0;
         transform: translateY(40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -42,6 +43,7 @@ body {
         opacity: 0;
         transform: translateX(-40px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -54,6 +56,7 @@ body {
         opacity: 0;
         transform: translateX(40px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -62,9 +65,12 @@ body {
 
 /* Subtle float animation */
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(-20px) rotate(3deg);
     }
@@ -72,9 +78,12 @@ body {
 
 /* Pulse glow effect */
 @keyframes pulseGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 0 0 var(--brand-green-glow);
     }
+
     50% {
         box-shadow: 0 0 30px 10px var(--brand-green-glow);
     }
@@ -85,9 +94,11 @@ body {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -99,6 +110,7 @@ body {
         opacity: 0;
         transform: scale(0.9);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -110,6 +122,7 @@ body {
     from {
         width: 0;
     }
+
     to {
         width: 100%;
     }
@@ -120,6 +133,7 @@ body {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -143,6 +157,17 @@ body {
     animation: float 6s ease-in-out infinite;
 }
 
+/* 3D Logo Tilt Effect */
+.hero-logo-tilt {
+    transition: transform 0.1s ease-out, filter 0.3s;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.hero-logo-tilt:hover {
+    filter: drop-shadow(0 20px 30px rgba(50, 205, 50, 0.3));
+}
+
 .animate-pulse-glow {
     animation: pulseGlow 2s ease-in-out infinite;
 }
@@ -152,14 +177,37 @@ body {
 }
 
 /* Stagger delays for sequential animations */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-.delay-600 { animation-delay: 0.6s; }
-.delay-700 { animation-delay: 0.7s; }
-.delay-800 { animation-delay: 0.8s; }
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+.delay-400 {
+    animation-delay: 0.4s;
+}
+
+.delay-500 {
+    animation-delay: 0.5s;
+}
+
+.delay-600 {
+    animation-delay: 0.6s;
+}
+
+.delay-700 {
+    animation-delay: 0.7s;
+}
+
+.delay-800 {
+    animation-delay: 0.8s;
+}
 
 /* Start invisible for staggered animations */
 .stagger-item {
@@ -282,8 +330,15 @@ body {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .icon-rotate:hover i,
@@ -348,7 +403,7 @@ body {
 }
 
 .subtle-pattern {
-    background-image: 
+    background-image:
         radial-gradient(circle at 20% 80%, rgba(50, 205, 50, 0.03) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(50, 205, 50, 0.03) 0%, transparent 50%);
 }
@@ -451,8 +506,8 @@ body {
 
 /* ------------- Accessibility Widget Fix --- */
 
-#a11y-widget, 
-#a11y-widget button, 
+#a11y-widget,
+#a11y-widget button,
 #a11y-toggle {
     font-size: 16px !important;
 }
@@ -555,11 +610,11 @@ body {
     .animate-float {
         animation: none;
     }
-    
+
     .tilt-card:hover {
         transform: translateY(-5px);
     }
-    
+
     .reveal,
     .reveal-left,
     .reveal-right {
@@ -569,6 +624,7 @@ body {
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {

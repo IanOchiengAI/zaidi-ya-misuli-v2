@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initBackToTop();
     initSmoothNavLinks();
     initMobileMenu();
+    initHeroLogoTilt();
 
     // Initialize Lucide icons
     if (typeof lucide !== 'undefined') {
@@ -221,4 +222,45 @@ function initStaggerAnimation() {
 }
 
 // Initialize stagger on load
+// Initialize stagger on load
 document.addEventListener('DOMContentLoaded', initStaggerAnimation);
+
+/**
+ * 3D Hero Logo Tilt Effect
+ * Reacts to mouse movement over the hero section
+ */
+function initHeroLogoTilt() {
+    const heroSection = document.querySelector('section'); // The first section is Hero
+    const logo = document.querySelector('.animate-float');
+
+    if (!heroSection || !logo) return;
+
+    // Add the specific class for 3D rendering
+    logo.classList.add('hero-logo-tilt');
+    // Remove the float animation when user interacts, or keep it? 
+    // Let's pause float on hover so tilt takes over cleanly
+
+    heroSection.addEventListener('mousemove', (e) => {
+        const { offsetWidth: width, offsetHeight: height } = heroSection;
+        const { clientX: x, clientY: y } = e;
+
+        // Calculate rotation (max 15 degrees)
+        const xRotation = ((y / height) - 0.5) * -15; // Invert Y for natural feel
+        const yRotation = ((x / width) - 0.5) * 15;
+
+        // Apply transform
+        logo.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
+
+        // Pause the floating animation while interacting
+        logo.style.animationPlayState = 'paused';
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+        // Reset position
+        logo.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+
+        // Resume floating animation
+        logo.style.animation = 'float 6s ease-in-out infinite';
+        logo.style.animationPlayState = 'running';
+    });
+}
