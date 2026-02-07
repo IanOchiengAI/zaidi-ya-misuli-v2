@@ -231,38 +231,42 @@ document.addEventListener('DOMContentLoaded', initStaggerAnimation);
  * Reacts to mouse movement over the hero section
  */
 function initHeroLogoTilt() {
-    const heroSection = document.querySelector('section'); // The first section is Hero
     const logo = document.querySelector('.animate-float');
 
-    if (!heroSection || !logo) return;
+    if (!logo) return;
 
     // Add the specific class for 3D rendering
     logo.classList.add('hero-logo-tilt');
-    // Remove the float animation when user interacts, or keep it? 
-    // Let's pause float on hover so tilt takes over cleanly
 
-    heroSection.addEventListener('mousemove', (e) => {
-        const { offsetWidth: width, offsetHeight: height } = heroSection;
-        const { clientX: x, clientY: y } = e;
+    // Attach listener directly to the logo (like the cards)
+    logo.addEventListener('mousemove', (e) => {
+        const rect = logo.getBoundingClientRect();
+
+        // Calculate position relative to the element (not viewport)
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
         // Calculate rotation (max 15 degrees)
-        const xRotation = ((y / height) - 0.5) * -15; // Invert Y for natural feel
-        const yRotation = ((x / width) - 0.5) * 15;
+        // 0.5 is center, result is -0.5 to 0.5
+        const xRotation = ((y / rect.height) - 0.5) * -15; // Invert Y
+        const yRotation = ((x / rect.width) - 0.5) * 15;
 
-        // Apply transform
+        // Apply transform with perspective
         logo.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
 
-        // Pause the floating animation while interacting
+        // Pause the floating animation while interacting so tilt is smooth
         logo.style.animationPlayState = 'paused';
     });
 
-    heroSection.addEventListener('mouseleave', () => {
-        // Reset position
+    logo.addEventListener('mouseleave', () => {
+        // Reset position with smooth transition
         logo.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
 
-        // Resume floating animation
-        logo.style.animation = 'float 6s ease-in-out infinite';
-        logo.style.animationPlayState = 'running';
+        // Resume floating animation after a short delay to let transition finish
+        setTimeout(() => {
+            logo.style.animation = 'float 6s ease-in-out infinite';
+            logo.style.animationPlayState = 'running';
+        }, 300);
     });
 }
 
