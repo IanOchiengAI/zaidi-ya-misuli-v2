@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Pillars | Zaidi ya Misuli Resource Centre</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Our three core pillars: Education & Training, Research, and Wholeness - building lasting change for people with muscular dystrophy.">
+    <meta property="og:title" content="Our Pillars | Zaidi ya Misuli">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="rose-logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'brand-green': '#32CD32', 'brand-black': '#111111' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white text-brand-black transition-all duration-300">
+
+    <!-- Navigation -->
+    <nav class="nav-enhanced fixed top-0 w-full bg-white/95 backdrop-blur z-50 py-4 border-b border-gray-100">
+        <div class="max-w-[90rem] mx-auto px-6 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-4 group">
+                <img src="rose-logo.png" alt="Logo"
+                    class="w-12 h-12 object-contain group-hover:scale-110 transition-transform">
+                <h1
+                    class="font-display font-extrabold text-2xl md:text-3xl tracking-tight text-brand-black leading-none">
+                    Zaidi ya Misuli <br class="md:hidden">Resource Centre</h1>
+            </a>
+            <div class="hidden xl:flex space-x-8 text-lg font-bold font-display">
+                <a href="/" class="hover:text-brand-green transition">Home</a>
+                <a href="/about" class="hover:text-brand-green transition">About Us</a>
+                <a href="/pillars" class="text-brand-green nav-link-active">Our Pillars</a>
+                <a href="/resources" class="hover:text-brand-green transition">Resources</a>
+                <a href="/contact" class="hover:text-brand-green transition">Contact</a>
+            </div>
+            <button class="xl:hidden" id="menu-btn" aria-label="Toggle menu">
+                <i data-lucide="menu" class="w-10 h-10"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-t p-6 space-y-4 shadow-xl">
+            <a href="/" class="block font-bold text-xl">Home</a>
+            <a href="/about" class="block font-bold text-xl">About Us</a>
+            <a href="/pillars" class="block font-bold text-brand-green text-xl">Our Pillars</a>
+            <a href="/resources" class="block font-bold text-xl">Resources</a>
+            <a href="/contact" class="block font-bold text-xl">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 md:pt-40 pb-12 px-6 max-w-7xl mx-auto">
+        <h2 class="font-display font-bold text-5xl md:text-6xl mb-6 animate-fade-in-up">
+            OUR PILLARS
+            <span class="block h-1 w-24 bg-brand-green mt-4 rounded-full"></span>
+        </h2>
+    </section>
+
+    <!-- Pillars Grid -->
+    <section class="pb-16 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Education & Training -->
+            <div class="pillar-card-enhanced tilt-card reveal bg-white p-10 rounded-2xl border-2 border-gray-200 hover:border-brand-green transition-all duration-300"
+                data-delay="0">
+                <div
+                    class="bg-brand-green w-16 h-16 flex items-center justify-center text-white mb-8 rounded-xl shadow-lg icon-bounce">
+                    <i data-lucide="book-open" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-display font-bold text-2xl md:text-3xl mb-6">Education & Training</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Training teachers/educators, healthcare professionals of all cadres, religious/spiritual
+                    practitioners and other relevant stakeholders on muscular dystrophy and other disabilities. Building
+                    capacity across communities to ensure dignity and access for all.
+                </p>
+            </div>
+
+            <!-- Research -->
+            <div class="pillar-card-enhanced tilt-card reveal bg-white p-10 rounded-2xl border-2 border-gray-200 hover:border-brand-green transition-all duration-300"
+                data-delay="150">
+                <div
+                    class="bg-brand-green w-16 h-16 flex items-center justify-center text-white mb-8 rounded-xl shadow-lg icon-bounce">
+                    <i data-lucide="search" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-display font-bold text-2xl md:text-3xl mb-6">Research</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Bridging knowledge gaps on muscular dystrophy and disability using feminist and decolonial
+                    approaches. Prioritising lived experiences of disability or having loved ones with disabilities and
+                    centering community voices in our work.
+                </p>
+            </div>
+
+            <!-- Wholeness -->
+            <div class="pillar-card-enhanced tilt-card reveal bg-white p-10 rounded-2xl border-2 border-gray-200 hover:border-brand-green transition-all duration-300"
+                data-delay="300">
+                <div
+                    class="bg-brand-green w-16 h-16 flex items-center justify-center text-white mb-8 rounded-xl shadow-lg icon-bounce">
+                    <i data-lucide="heart" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-display font-bold text-2xl md:text-3xl mb-6">Wholeness</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Mind, body, and spirit wellness. Focus on play, grief and mourning, music, and dance. Creating
+                    spaces for joy, healing, and authentic expression.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Foundation Quote -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="max-w-5xl mx-auto reveal">
+            <div class="relative">
+                <i data-lucide="quote" class="w-16 h-16 text-brand-green/20 absolute -top-4 -left-4"></i>
+                <h3
+                    class="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl leading-snug tracking-tight text-brand-black pl-8">
+                    Together, these pillars create a foundation for lasting change, one that honors the
+                    <span class="text-brand-green">full humanity</span> of every person.
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h3 class="font-display font-bold text-2xl md:text-3xl mb-6">Want to support our mission?</h3>
+            <a href="/contact"
+                class="btn-glow inline-block bg-brand-green text-white font-bold px-8 py-4 text-lg rounded-lg shadow-lg hover:bg-brand-green-dark transition-all duration-300">
+                Get in Touch
+                <i data-lucide="arrow-right" class="inline-block w-5 h-5 ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-enhanced bg-brand-black text-white py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-4">
+                    <img src="rose-logo.png" alt="Logo" class="w-12 h-12 object-contain">
+                    <span class="font-display font-bold text-xl">Zaidi ya Misuli</span>
+                </div>
+                <div class="flex gap-8 text-sm font-medium">
+                    <a href="/about" class="hover:text-brand-green transition-colors">About</a>
+                    <a href="/pillars" class="hover:text-brand-green transition-colors">Pillars</a>
+                    <a href="/resources" class="hover:text-brand-green transition-colors">Resources</a>
+                    <a href="/contact" class="hover:text-brand-green transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Zaidi ya Misuli Resource Centre. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Accessibility Widget -->
+    <button id="a11y-toggle"
+        class="fixed bottom-8 right-6 z-50 bg-brand-black text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-2"
+        title="Accessibility Tools">
+        <i data-lucide="accessibility" class="w-8 h-8"></i>
+    </button>
+    <div id="a11y-widget"
+        class="fixed top-24 right-0 h-[80vh] w-72 bg-white shadow-2xl border-l border-gray-200 z-40 p-6 overflow-y-auto rounded-l-xl">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="font-bold text-xl font-display">Accessibility</h3>
+            <button onclick="toggleWidget()" class="text-gray-500 hover:text-red-500"><i data-lucide="x"></i></button>
+        </div>
+        <div class="space-y-3">
+            <button onclick="adjustText(5)" class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i
+                    data-lucide="type"></i> Increase Text</button>
+            <button onclick="adjustText(-5)" class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i
+                    data-lucide="minus"></i> Decrease Text</button>
+            <button onclick="toggleFilter('grayscale-mode')"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i data-lucide="eye-off"></i>
+                Grayscale</button>
+            <button onclick="toggleFilter('high-contrast')"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i data-lucide="contrast"></i> High
+                Contrast</button>
+            <button onclick="resetA11y()" class="w-full p-4 bg-gray-100 text-red-600 rounded-lg flex gap-3 mt-4"><i
+                    data-lucide="rotate-ccw"></i> Reset</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>document.getElementById('a11y-toggle').addEventListener('click', toggleWidget);</script>
+</body>
+
+</html>

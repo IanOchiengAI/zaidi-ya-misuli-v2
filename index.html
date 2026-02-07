@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaidi ya Misuli Resource Centre | Beyond Muscles</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Zaidi ya Misuli Resource Centre - Demystifying, researching, and supporting those with muscular dystrophy in Kenya. Beyond Muscles.">
+    <meta name="keywords" content="muscular dystrophy, Kenya, disability, inclusion, support, resources">
+    <meta name="author" content="Zaidi ya Misuli Resource Centre">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Zaidi ya Misuli Resource Centre">
+    <meta property="og:description"
+        content="A loving society where people with muscular dystrophy experience wholeness.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zaidiyamisuli.org">
+    <meta property="og:image" content="rose-logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="rose-logo.png">
+    <link rel="apple-touch-icon" href="rose-logo.png">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#32CD32',
+                        'brand-green-dark': '#28a428',
+                        'brand-black': '#111111'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white text-brand-black transition-all duration-300">
+
+    <!-- Navigation -->
+    <nav class="nav-enhanced fixed top-0 w-full bg-white/95 backdrop-blur z-50 py-4 border-b border-gray-100">
+        <div class="max-w-[90rem] mx-auto px-6 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-4 group">
+                <img src="rose-logo.png" alt="Zaidi ya Misuli Logo"
+                    class="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300">
+                <h1
+                    class="font-display font-extrabold text-2xl md:text-3xl tracking-tight text-brand-black leading-none">
+                    Zaidi ya Misuli <br class="md:hidden">Resource Centre
+                </h1>
+            </a>
+            <div class="hidden xl:flex space-x-8 text-lg font-bold font-display">
+                <a href="/" class="text-brand-green nav-link-active">Home</a>
+                <a href="/about" class="hover:text-brand-green transition-colors duration-300">About Us</a>
+                <a href="/pillars" class="hover:text-brand-green transition-colors duration-300">Our Pillars</a>
+                <a href="/resources" class="hover:text-brand-green transition-colors duration-300">Resources</a>
+                <a href="/contact" class="hover:text-brand-green transition-colors duration-300">Contact</a>
+            </div>
+            <button class="xl:hidden" id="menu-btn" aria-label="Toggle menu">
+                <i data-lucide="menu" class="w-10 h-10"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-t p-6 space-y-4 shadow-xl">
+            <a href="/" class="block font-bold text-brand-green text-xl">Home</a>
+            <a href="/about" class="block font-bold text-xl hover:text-brand-green transition-colors">About Us</a>
+            <a href="/pillars" class="block font-bold text-xl hover:text-brand-green transition-colors">Our Pillars</a>
+            <a href="/resources" class="block font-bold text-xl hover:text-brand-green transition-colors">Resources</a>
+            <a href="/contact" class="block font-bold text-xl hover:text-brand-green transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 md:pt-40 pb-24 px-6 max-w-7xl mx-auto subtle-pattern min-h-[90vh] flex items-center">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12 w-full">
+            <!-- Hero Text -->
+            <div class="md:w-1/2 space-y-6">
+                <h1
+                    class="font-display font-black text-5xl md:text-7xl text-brand-black leading-tight tracking-tight animate-fade-in-up">
+                    Zaidi ya Misuli <br>Resource Centre
+                </h1>
+                <h2 class="font-display font-bold text-3xl md:text-5xl text-brand-green tracking-tight animate-fade-in-up delay-200"
+                    style="animation-delay: 0.2s;">
+                    Beyond Muscles.
+                </h2>
+                <p class="text-xl md:text-2xl font-normal text-gray-700 leading-relaxed max-w-xl animate-fade-in-up"
+                    style="animation-delay: 0.4s;">
+                    Demystifying, researching, and supporting those with muscular dystrophy in Kenya.
+                </p>
+                <div class="pt-8 animate-fade-in-up" style="animation-delay: 0.6s;">
+                    <a href="/resources"
+                        class="btn-glow inline-block bg-brand-green text-white font-bold px-10 py-5 text-lg rounded-lg shadow-lg hover:bg-brand-green-dark transition-all duration-300">
+                        SEE OUR WORK
+                        <i data-lucide="arrow-right" class="inline-block w-5 h-5 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="md:w-1/2 flex justify-center md:justify-end">
+                <img src="rose-logo.png" alt="Rose Logo - Symbol of Growth and Resilience"
+                    class="w-[280px] md:w-[450px] h-auto animate-float drop-shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Banner -->
+    <div class="vision-banner bg-brand-black text-white py-20 md:py-28 px-6">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <p class="text-sm uppercase tracking-[0.3em] text-brand-green font-bold mb-6">Our Vision</p>
+            <p class="font-display font-bold text-2xl md:text-4xl leading-relaxed">
+                A loving society where people with muscular dystrophy, other disabilities, and without disabilities are
+                experiencing
+                <span class="text-brand-green">wholeness</span>.
+            </p>
+        </div>
+    </div>
+
+    <!-- Quick Stats / Impact Section -->
+    <section class="py-20 px-6 gradient-bg">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="reveal text-center p-8" data-delay="0">
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                        <div
+                            class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="calendar" class="w-8 h-8 text-brand-green"></i>
+                        </div>
+                        <p class="font-display font-black text-4xl text-brand-black mb-2">2013</p>
+                        <p class="text-gray-600 font-medium">Founded as MDS Kenya</p>
+                    </div>
+                </div>
+                <div class="reveal text-center p-8" data-delay="150">
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                        <div
+                            class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="heart-handshake" class="w-8 h-8 text-brand-green"></i>
+                        </div>
+                        <p class="font-display font-black text-4xl text-brand-black mb-2">3</p>
+                        <p class="text-gray-600 font-medium">Core Pillars</p>
+                    </div>
+                </div>
+                <div class="reveal text-center p-8" data-delay="300">
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                        <div
+                            class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="globe" class="w-8 h-8 text-brand-green"></i>
+                        </div>
+                        <p class="font-display font-black text-4xl text-brand-black mb-2">Kenya</p>
+                        <p class="text-gray-600 font-medium">Kiambu County Based</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h3 class="font-display font-bold text-3xl md:text-4xl mb-6 text-brand-black">
+                Ready to make a difference?
+            </h3>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                Whether through partnership, donation, or simply starting a conversation — we welcome you.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact"
+                    class="btn-glow inline-block bg-brand-green text-white font-bold px-8 py-4 text-lg rounded-lg shadow-lg hover:bg-brand-green-dark transition-all duration-300">
+                    Get in Touch
+                </a>
+                <a href="/about"
+                    class="inline-block bg-white text-brand-black font-bold px-8 py-4 text-lg rounded-lg border-2 border-brand-black hover:bg-brand-black hover:text-white transition-all duration-300">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-enhanced bg-brand-black text-white py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-4">
+                    <img src="rose-logo.png" alt="Logo" class="w-12 h-12 object-contain">
+                    <span class="font-display font-bold text-xl">Zaidi ya Misuli</span>
+                </div>
+                <div class="flex gap-8 text-sm font-medium">
+                    <a href="/about" class="hover:text-brand-green transition-colors">About</a>
+                    <a href="/pillars" class="hover:text-brand-green transition-colors">Pillars</a>
+                    <a href="/resources" class="hover:text-brand-green transition-colors">Resources</a>
+                    <a href="/contact" class="hover:text-brand-green transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Zaidi ya Misuli Resource Centre. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Accessibility Widget -->
+    <button id="a11y-toggle"
+        class="fixed bottom-8 right-6 z-50 bg-brand-black text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center gap-2"
+        title="Accessibility Tools" aria-label="Open accessibility menu">
+        <i data-lucide="accessibility" class="w-8 h-8"></i>
+    </button>
+    <div id="a11y-widget"
+        class="fixed top-24 right-0 h-[80vh] w-72 bg-white shadow-2xl border-l border-gray-200 z-40 p-6 overflow-y-auto rounded-l-xl">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="font-bold text-xl font-display">Accessibility</h3>
+            <button onclick="toggleWidget()" class="text-gray-500 hover:text-red-500 transition-colors"
+                aria-label="Close accessibility menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="space-y-3">
+            <button onclick="adjustText(5)"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="type"></i> Increase Text
+            </button>
+            <button onclick="adjustText(-5)"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="minus"></i> Decrease Text
+            </button>
+            <button onclick="toggleFilter('grayscale-mode')"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="eye-off"></i> Grayscale
+            </button>
+            <button onclick="toggleFilter('high-contrast')"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="contrast"></i> High Contrast
+            </button>
+            <button onclick="resetA11y()"
+                class="w-full p-4 bg-gray-100 text-red-600 rounded-lg flex gap-3 mt-4 hover:bg-gray-200 transition-colors">
+                <i data-lucide="rotate-ccw"></i> Reset
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script>
+        // Initialize accessibility toggle
+        document.getElementById('a11y-toggle').addEventListener('click', toggleWidget);
+    </script>
+</body>
+
+</html>
