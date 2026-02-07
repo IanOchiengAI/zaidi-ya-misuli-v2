@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initSmoothNavLinks();
     initMobileMenu();
     initHeroLogoTilt();
+    initCardTiltEffect();
 
     // Initialize Lucide icons
     if (typeof lucide !== 'undefined') {
@@ -262,5 +263,34 @@ function initHeroLogoTilt() {
         // Resume floating animation
         logo.style.animation = 'float 6s ease-in-out infinite';
         logo.style.animationPlayState = 'running';
+    });
+}
+
+/**
+ * Dynamic 3D Card Tilt Effect
+ * Applies to all elements with .tilt-card class
+ */
+function initCardTiltEffect() {
+    const cards = document.querySelectorAll('.tilt-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Calculate rotation (max 10 degrees)
+            // 0.5 is center, result is -0.5 to 0.5
+            const xRotation = ((y / rect.height) - 0.5) * -10; // Invert Y
+            const yRotation = ((x / rect.width) - 0.5) * 10;
+
+            // Use requestAnimationFrame for smoother performance if needed, 
+            // but direct style update is usually fine for simple tilt
+            card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
     });
 }
