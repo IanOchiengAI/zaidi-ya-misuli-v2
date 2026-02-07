@@ -283,14 +283,13 @@ function initCardTiltEffect() {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
-            // Calculate rotation (max 10 degrees)
+            // Calculate rotation (max 15 degrees - matching hero logo)
             // 0.5 is center, result is -0.5 to 0.5
-            const xRotation = ((y / rect.height) - 0.5) * -10; // Invert Y
-            const yRotation = ((x / rect.width) - 0.5) * 10;
+            const xRotation = ((y / rect.height) - 0.5) * -15; // Invert Y
+            const yRotation = ((x / rect.width) - 0.5) * 15;
 
-            // Use requestAnimationFrame for smoother performance if needed, 
-            // but direct style update is usually fine for simple tilt
-            card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.02)`;
+            // Apply transform with same scale as hero logo (1.05)
+            card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
         });
 
         card.addEventListener('mouseleave', () => {
