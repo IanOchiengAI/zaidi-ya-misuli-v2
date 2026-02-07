@@ -238,7 +238,13 @@ function initHeroLogoTilt() {
     // Add the specific class for 3D rendering
     logo.classList.add('hero-logo-tilt');
 
-    // Attach listener directly to the logo (like the cards)
+    // Remove float animation immediately on interaction start
+    logo.addEventListener('mouseenter', () => {
+        logo.classList.remove('animate-float');
+        logo.style.animation = 'none'; // Explicitly clear animation
+    });
+
+    // Attach listener directly to the logo
     logo.addEventListener('mousemove', (e) => {
         const rect = logo.getBoundingClientRect();
 
@@ -253,19 +259,17 @@ function initHeroLogoTilt() {
 
         // Apply transform with perspective
         logo.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
-
-        // Pause the floating animation while interacting so tilt is smooth
-        logo.style.animationPlayState = 'paused';
     });
 
     logo.addEventListener('mouseleave', () => {
         // Reset position with smooth transition
         logo.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
 
-        // Resume floating animation after a short delay to let transition finish
+        // Add float animation back
+        // Small delay to allow transform transition to complete first
         setTimeout(() => {
-            logo.style.animation = 'float 6s ease-in-out infinite';
-            logo.style.animationPlayState = 'running';
+            logo.style.animation = ''; // Clear inline style
+            logo.classList.add('animate-float');
         }, 300);
     });
 }

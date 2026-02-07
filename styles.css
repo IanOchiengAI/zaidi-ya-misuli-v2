@@ -162,6 +162,7 @@ body {
     transition: transform 0.1s ease-out, filter 0.3s;
     transform-style: preserve-3d;
     will-change: transform;
+    cursor: pointer;
 }
 
 .hero-logo-tilt:hover {
@@ -263,6 +264,7 @@ body {
     transition: transform 0.1s ease-out, box-shadow 0.3s var(--transition-smooth);
     transform-style: preserve-3d;
     will-change: transform;
+    cursor: pointer;
 }
 
 .tilt-card:hover {
