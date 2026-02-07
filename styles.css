@@ -260,12 +260,13 @@ body {
 
 /* 3D tilt effect on hover */
 .tilt-card {
-    transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth);
+    transition: transform 0.1s ease-out, box-shadow 0.3s var(--transition-smooth);
     transform-style: preserve-3d;
+    will-change: transform;
 }
 
 .tilt-card:hover {
-    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateY(-10px);
+    /* Transform handled by JS for dynamic tilt */
     box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.15), -5px -5px 20px rgba(255, 255, 255, 0.8);
 }
 
