@@ -5,6 +5,7 @@ import './src/style.css';
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
+    // Core initializations
     initScrollReveal();
     initNavScrollEffect();
     initBackToTop();
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initHeroLogoTilt();
     initCardTiltEffect();
     initA11y();
+    initStaggerAnimation();
 
     // Initialize Lucide icons
     if (typeof lucide !== 'undefined') {
@@ -57,18 +59,12 @@ function initNavScrollEffect() {
     const nav = document.querySelector('nav');
     if (!nav) return;
 
-    let lastScroll = 0;
-
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 50) {
+        if (window.pageYOffset > 50) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
-
-        lastScroll = currentScroll;
     }, { passive: true });
 }
 
@@ -76,7 +72,6 @@ function initNavScrollEffect() {
  * Back to Top Button
  */
 function initBackToTop() {
-    // Create button if it doesn't exist
     let backToTopBtn = document.querySelector('.back-to-top');
 
     if (!backToTopBtn) {
@@ -87,7 +82,6 @@ function initBackToTop() {
         document.body.appendChild(backToTopBtn);
     }
 
-    // Show/hide based on scroll position
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 400) {
             backToTopBtn.classList.add('visible');
@@ -96,12 +90,8 @@ function initBackToTop() {
         }
     }, { passive: true });
 
-    // Scroll to top on click
     backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
@@ -117,10 +107,7 @@ function initSmoothNavLinks() {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
@@ -135,27 +122,19 @@ function initMobileMenu() {
 
     if (!menuBtn || !mobileMenu) return;
 
-    // Replace onclick with proper event handling
     menuBtn.removeAttribute('onclick');
-
     menuBtn.addEventListener('click', () => {
-        const isOpen = !mobileMenu.classList.contains('hidden');
-
-        if (isOpen) {
-            mobileMenu.classList.add('hidden');
-            menuBtn.querySelector('i, svg')?.setAttribute('data-lucide', 'menu');
-        } else {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
             mobileMenu.classList.remove('hidden');
             menuBtn.querySelector('i, svg')?.setAttribute('data-lucide', 'x');
+        } else {
+            mobileMenu.classList.add('hidden');
+            menuBtn.querySelector('i, svg')?.setAttribute('data-lucide', 'menu');
         }
-
-        // Re-render icon
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
+        if (typeof lucide !== 'undefined') lucide.createIcons();
     });
 
-    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
             mobileMenu.classList.add('hidden');
@@ -168,17 +147,16 @@ function initMobileMenu() {
  */
 const a11yWidget = {
     currentZoom: 100,
+    isDyslexic: false,
 
     toggle() {
         const widget = document.getElementById('a11y-widget');
-        if (widget) {
-            widget.classList.toggle('open');
-        }
+        if (widget) widget.classList.toggle('open');
     },
 
     adjustText(amount) {
         this.currentZoom += amount;
-        this.currentZoom = Math.max(80, Math.min(150, this.currentZoom)); // Clamp between 80-150%
+        this.currentZoom = Math.max(80, Math.min(150, this.currentZoom));
         document.documentElement.style.fontSize = this.currentZoom + '%';
     },
 
@@ -186,28 +164,32 @@ const a11yWidget = {
         document.body.classList.toggle(className);
     },
 
+    toggleDyslexic() {
+        this.isDyslexic = !this.isDyslexic;
+        document.body.classList.toggle('dyslexic-font');
+    },
+
     reset() {
         document.body.className = 'bg-white text-brand-black transition-all duration-300';
         document.documentElement.style.fontSize = '100%';
         this.currentZoom = 100;
+        this.isDyslexic = false;
+        document.body.classList.remove('dyslexic-font');
     }
 };
 
-// Expose to global scope for inline handlers
 window.toggleWidget = () => a11yWidget.toggle();
 window.adjustText = (amount) => a11yWidget.adjustText(amount);
 window.toggleFilter = (className) => a11yWidget.toggleFilter(className);
+window.toggleDyslexic = () => a11yWidget.toggleDyslexic();
 window.resetA11y = () => a11yWidget.reset();
 
 /**
  * Stagger Animation Helper
- * Add 'stagger-parent' class to container
- * Add 'stagger-item' class to children
  */
 function initStaggerAnimation() {
     document.querySelectorAll('.stagger-parent').forEach(parent => {
         const children = parent.querySelectorAll('.stagger-item');
-
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 children.forEach((child, index) => {
@@ -219,58 +201,34 @@ function initStaggerAnimation() {
                 observer.unobserve(parent);
             }
         }, { threshold: 0.2 });
-
         observer.observe(parent);
     });
 }
 
-// Initialize stagger on load
-// Initialize stagger on load
-document.addEventListener('DOMContentLoaded', initStaggerAnimation);
-
 /**
  * 3D Hero Logo Tilt Effect
- * Reacts to mouse movement over the hero section
  */
 function initHeroLogoTilt() {
     const logo = document.querySelector('.animate-float');
-
     if (!logo) return;
 
-    // Add the specific class for 3D rendering
     logo.classList.add('hero-logo-tilt');
-
-    // Remove float animation immediately on interaction start
     logo.addEventListener('mouseenter', () => {
         logo.classList.remove('animate-float');
-        logo.style.animation = 'none'; // Explicitly clear animation
+        logo.style.animation = 'none';
     });
 
-    // Attach listener directly to the logo
     logo.addEventListener('mousemove', (e) => {
         const rect = logo.getBoundingClientRect();
-
-        // Calculate position relative to the element (not viewport)
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        // Calculate rotation (max 15 degrees)
-        // 0.5 is center, result is -0.5 to 0.5
-        const xRotation = ((y / rect.height) - 0.5) * -15; // Invert Y
-        const yRotation = ((x / rect.width) - 0.5) * 15;
-
-        // Apply transform with perspective
+        const xRotation = (((e.clientY - rect.top) / rect.height) - 0.5) * -15;
+        const yRotation = (((e.clientX - rect.left) / rect.width) - 0.5) * 15;
         logo.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
     });
 
     logo.addEventListener('mouseleave', () => {
-        // Reset position with smooth transition
         logo.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-
-        // Add float animation back
-        // Small delay to allow transform transition to complete first
         setTimeout(() => {
-            logo.style.animation = ''; // Clear inline style
+            logo.style.animation = '';
             logo.classList.add('animate-float');
         }, 300);
     });
@@ -278,26 +236,15 @@ function initHeroLogoTilt() {
 
 /**
  * Dynamic 3D Card Tilt Effect
- * Applies to all elements with .tilt-card class
  */
 function initCardTiltEffect() {
-    const cards = document.querySelectorAll('.tilt-card');
-
-    cards.forEach(card => {
+    document.querySelectorAll('.tilt-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            // Calculate rotation (max 15 degrees - matching hero logo)
-            // 0.5 is center, result is -0.5 to 0.5
-            const xRotation = ((y / rect.height) - 0.5) * -15; // Invert Y
-            const yRotation = ((x / rect.width) - 0.5) * 15;
-
-            // Apply transform with same scale as hero logo (1.05)
+            const xRotation = (((e.clientY - rect.top) / rect.height) - 0.5) * -15;
+            const yRotation = (((e.clientX - rect.left) / rect.width) - 0.5) * 15;
             card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
         });
-
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
         });
@@ -313,4 +260,3 @@ function initA11y() {
         toggleBtn.addEventListener('click', () => a11yWidget.toggle());
     }
 }
-

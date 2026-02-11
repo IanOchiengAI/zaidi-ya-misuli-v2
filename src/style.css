@@ -272,8 +272,8 @@ body {
 /* Glass morphism card */
 .glass-card {
     background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -571,21 +571,38 @@ body {
     transform: translateX(0);
 }
 
-/* High contrast mode */
-.high-contrast {
-    background-color: black !important;
-    color: yellow !important;
-}
-
-.high-contrast * {
-    border-color: yellow !important;
-    background-color: black !important;
-    color: yellow !important;
-}
-
 /* Grayscale mode */
 .grayscale-mode {
     filter: grayscale(100%);
+}
+
+/* Dyslexic Friendly Font */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('https://antijones.github.io/opendyslexic/OpenDyslexic-Regular.otf');
+}
+
+.dyslexic-font {
+    font-family: 'OpenDyslexic', 'Comic Sans MS', cursive !important;
+    letter-spacing: 0.05em !important;
+    word-spacing: 0.1em !important;
+}
+
+/* Dark Mode / High Contrast */
+.high-contrast {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast * {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    border-color: #32CD32 !important;
+}
+
+.high-contrast a,
+.high-contrast button {
+    color: #32CD32 !important;
 }
 
 /* ------------- Mobile Menu Animation ------ */

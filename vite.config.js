@@ -14,6 +14,7 @@ export default defineConfig({
                 contact: resolve(import.meta.dirname, 'contact.html'),
                 pillars: resolve(import.meta.dirname, 'pillars.html'),
                 resources: resolve(import.meta.dirname, 'resources.html'),
+                success: resolve(import.meta.dirname, 'success.html'),
                 notFound: resolve(import.meta.dirname, '404.html'),
             },
         },
