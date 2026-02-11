@@ -1,6 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+/* @config "../tailwind.config.js"; */
+
+@theme {
+    --color-brand-green: #32CD32;
+    --color-brand-black: #111111;
+    --color-brand-green-dark: #28a428;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
 
 /* ============================================
    ZAIDI YA MISULI - ANIMATIONS & ENHANCEMENTS

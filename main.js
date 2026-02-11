@@ -1,6 +1,7 @@
 /* ============================================
    ZAIDI YA MISULI - INTERACTIVE JAVASCRIPT
    ============================================ */
+import './src/style.css';
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initMobileMenu();
     initHeroLogoTilt();
     initCardTiltEffect();
+    initA11y();
 
     // Initialize Lucide icons
     if (typeof lucide !== 'undefined') {
@@ -301,3 +303,14 @@ function initCardTiltEffect() {
         });
     });
 }
+
+/**
+ * Initialize Accessibility Widget
+ */
+function initA11y() {
+    const toggleBtn = document.getElementById('a11y-toggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => a11yWidget.toggle());
+    }
+}
+
