@@ -117,12 +117,11 @@ function initSmoothNavLinks() {
  * Enhanced Mobile Menu
  */
 function initMobileMenu() {
-    const menuBtn = document.querySelector('[onclick*="mobile-menu"]');
+    const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (!menuBtn || !mobileMenu) return;
 
-    menuBtn.removeAttribute('onclick');
     menuBtn.addEventListener('click', () => {
         const isHidden = mobileMenu.classList.contains('hidden');
         if (isHidden) {
@@ -138,6 +137,7 @@ function initMobileMenu() {
     document.addEventListener('click', (e) => {
         if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
             mobileMenu.classList.add('hidden');
+            menuBtn.querySelector('i, svg')?.setAttribute('data-lucide', 'menu');
         }
     });
 }

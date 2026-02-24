@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,28 +8,28 @@
 
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Our three core pillars: Education & Training, Research, and Wholeness - building lasting change for people with muscular dystrophy.">
-    <meta property="og:title" content="Our Pillars | Zaidi ya Misuli">
+        content="Explore our three core pillars: Education & Training, Research, and Wholeness. We build lasting change and holistic support for muscular dystrophy in Kenya.">
+    <meta property="og:title" content="Our Pillars | Zaidi ya Misuli Resource Centre">
     <meta property="og:type" content="website">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="rose-logo.png">
+    <link rel="icon" type="image/png" href="rose-logo.webp">
 
     <!-- Custom Styles (Vite Build) -->
     <link rel="stylesheet" href="/src/style.css">
 
     <!-- Open Graph Image -->
-    <meta property="og:image" content="og-banner.jpg">
+    <meta property="og:image" content="rose-logo.webp">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Google Analytics (Placeholder) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    </script> -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -44,7 +44,7 @@
     <nav class="nav-enhanced fixed top-0 w-full bg-white/95 backdrop-blur z-50 py-4 border-b border-gray-100">
         <div class="max-w-[90rem] mx-auto px-6 flex justify-between items-center">
             <a href="/" class="flex items-center gap-4 group">
-                <img src="rose-logo.png" alt="Logo"
+                <img src="rose-logo.webp" alt="Logo"
                     class="w-12 h-12 object-contain group-hover:scale-110 transition-transform">
                 <h1
                     class="font-display font-extrabold text-2xl md:text-3xl tracking-tight text-brand-black leading-none">
@@ -129,16 +129,21 @@
     </section>
 
     <!-- Foundation Quote -->
-    <section class="py-20 px-6 bg-gray-50">
-        <div class="max-w-5xl mx-auto reveal">
-            <div class="relative">
-                <i data-lucide="quote" class="w-16 h-16 text-brand-green/20 absolute -top-4 -left-4"></i>
-                <h3
-                    class="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl leading-snug tracking-tight text-brand-black pl-8">
-                    Together, these pillars create a foundation for lasting change, one that honors the
-                    <span class="text-brand-green">full humanity</span> of every person.
-                </h3>
-            </div>
+    <section class="py-24 px-6 bg-gray-50 overflow-hidden">
+        <div class="max-w-5xl mx-auto reveal text-center">
+            <h3
+                class="font-display font-extrabold text-2xl md:text-4xl lg:text-5xl leading-snug tracking-tight text-brand-black inline-block relative max-w-4xl px-8 md:px-12">
+                <!-- Absolute Opening quote -->
+                <span
+                    class="absolute left-0 md:-left-4 top-2 text-7xl md:text-9xl text-brand-green/30 font-serif leading-[0] select-none"
+                    aria-hidden="true">&#x201C;</span>
+                Together, these pillars create a foundation for lasting change, one that honors the
+                <span class="text-brand-green">full humanity</span> of every person.
+                <!-- Absolute Closing quote -->
+                <span
+                    class="absolute -right-2 md:-right-8 bottom-4 md:-bottom-2 text-7xl md:text-9xl text-brand-green/30 font-serif leading-[0] select-none"
+                    aria-hidden="true">&#x201D;</span>
+            </h3>
         </div>
     </section>
 
@@ -159,10 +164,10 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                 <div class="flex items-center gap-4">
-                    <img src="rose-logo.png" alt="Logo" class="w-12 h-12 object-contain">
+                    <img src="rose-logo.webp" alt="Logo" class="w-12 h-12 object-contain">
                     <span class="font-display font-bold text-xl">Zaidi ya Misuli Resource Centre</span>
                 </div>
-                <div class="flex gap-8 text-sm font-medium">
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-sm font-medium">
                     <a href="/about" class="hover:text-brand-green transition-colors">About</a>
                     <a href="/pillars" class="hover:text-brand-green transition-colors">Pillars</a>
                     <a href="/resources" class="hover:text-brand-green transition-colors">Resources</a>
@@ -175,36 +180,49 @@
         </div>
     </footer>
 
+
     <!-- Accessibility Widget -->
     <button id="a11y-toggle"
-        class="fixed bottom-8 right-6 z-50 bg-brand-black text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-2"
-        title="Accessibility Tools">
+        class="fixed bottom-8 right-6 z-50 bg-brand-black text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center gap-2"
+        title="Accessibility Tools" aria-label="Open accessibility menu">
         <i data-lucide="accessibility" class="w-8 h-8"></i>
     </button>
     <div id="a11y-widget"
         class="fixed top-24 right-0 h-[80vh] w-72 bg-white shadow-2xl border-l border-gray-200 z-40 p-6 overflow-y-auto rounded-l-xl">
         <div class="flex justify-between items-center mb-6">
             <h3 class="font-bold text-xl font-display">Accessibility</h3>
-            <button onclick="toggleWidget()" class="text-gray-500 hover:text-red-500"><i data-lucide="x"></i></button>
+            <button onclick="toggleWidget()" class="text-gray-500 hover:text-red-500 transition-colors"
+                aria-label="Close accessibility menu">
+                <i data-lucide="x"></i>
+            </button>
         </div>
         <div class="space-y-3">
-            <button onclick="adjustText(5)" class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i
-                    data-lucide="type"></i> Increase Text</button>
-            <button onclick="adjustText(-5)" class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i
-                    data-lucide="minus"></i> Decrease Text</button>
+            <button onclick="adjustText(5)"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="type"></i> Increase Text
+            </button>
+            <button onclick="adjustText(-5)"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="minus"></i> Decrease Text
+            </button>
             <button onclick="toggleFilter('grayscale-mode')"
-                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i data-lucide="eye-off"></i>
-                Grayscale</button>
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="eye-off"></i> Grayscale
+            </button>
             <button onclick="toggleFilter('high-contrast')"
-                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i data-lucide="contrast"></i> Dark
-                Mode</button>
-            <button onclick="toggleDyslexic()" class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i
-                    data-lucide="spell-check"></i> Dyslexic Font</button>
-            <button onclick="resetA11y()" class="w-full p-4 bg-gray-100 text-red-600 rounded-lg flex gap-3 mt-4"><i
-                    data-lucide="rotate-ccw"></i> Reset</button>
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="contrast"></i> Dark Mode
+            </button>
+            <button onclick="toggleDyslexic()"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="spell-check"></i> Dyslexic Font
+            </button>
+            <button onclick="resetA11y()"
+                class="w-full p-4 bg-gray-100 text-red-600 rounded-lg flex gap-3 mt-4 hover:bg-gray-200 transition-colors">
+                <i data-lucide="rotate-ccw"></i> Reset
+            </button>
         </div>
     </div>
-
     <script type="module" src="main.js"></script>
 
 </body>

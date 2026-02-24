@@ -1,10 +1,13 @@
 @import "tailwindcss";
-/* @config "../tailwind.config.js"; */
 
 @theme {
     --color-brand-green: #32CD32;
     --color-brand-black: #111111;
     --color-brand-green-dark: #28a428;
+    --color-brand-green-glow: rgba(50, 205, 50, 0.4);
+    --color-linkedin: #0077b5;
+    --font-sans: 'Inter', sans-serif;
+    --font-display: 'Inter', sans-serif;
 }
 
 body {
@@ -345,6 +348,10 @@ body {
 }
 
 /* ------------- Icon Animations ------------ */
+
+.mirror-x {
+    transform: scaleX(-1) !important;
+}
 
 .icon-bounce:hover i,
 .icon-bounce:hover svg {

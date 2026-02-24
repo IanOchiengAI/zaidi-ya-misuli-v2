@@ -8,29 +8,29 @@
 
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Learn about Zaidi ya Misuli Resource Centre - our history, team, and commitment to supporting those with muscular dystrophy in Kenya.">
-    <meta property="og:title" content="About Us | Zaidi ya Misuli">
+        content="Learn about Zaidi ya Misuli Resource Centre's history, our dedicated executive team, and our ongoing commitment to supporting muscular dystrophy in Kenya.">
+    <meta property="og:title" content="About Us | Zaidi ya Misuli Resource Centre">
     <meta property="og:description" content="Founded in 2013, we are grounded in Disability Justice Principles.">
     <meta property="og:type" content="website">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="rose-logo.png">
+    <link rel="icon" type="image/png" href="rose-logo.webp">
 
     <!-- Custom Styles (Vite Build) -->
     <link rel="stylesheet" href="/src/style.css">
 
     <!-- Open Graph Image -->
-    <meta property="og:image" content="og-banner.jpg">
+    <meta property="og:image" content="rose-logo.webp">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Google Analytics (Placeholder) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    </script> -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -45,7 +45,7 @@
     <nav class="nav-enhanced fixed top-0 w-full bg-white/95 backdrop-blur z-50 py-4 border-b border-gray-100">
         <div class="max-w-[90rem] mx-auto px-6 flex justify-between items-center">
             <a href="/" class="flex items-center gap-4 group">
-                <img src="rose-logo.png" alt="Logo"
+                <img src="rose-logo.webp" alt="Zaidi ya Misuli Header Logo"
                     class="w-12 h-12 object-contain group-hover:scale-110 transition-transform">
                 <h1
                     class="font-display font-extrabold text-2xl md:text-3xl tracking-tight text-brand-black leading-none">
@@ -72,8 +72,11 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="pt-32 md:pt-40 pb-16 px-6 max-w-7xl mx-auto">
-        <h2 class="font-display font-bold text-5xl md:text-6xl mb-6 animate-fade-in-up">
+    <section class="pt-32 md:pt-40 pb-16 px-6 max-w-7xl mx-auto relative overflow-hidden">
+        <!-- Background watermark -->
+        <img src="rose-logo.webp" alt="Rose logo background watermark" aria-hidden="true"
+            class="absolute -right-24 -top-12 w-[450px] h-auto opacity-[0.04] pointer-events-none select-none rotate-12">
+        <h2 class="font-display font-bold text-5xl md:text-6xl mb-6 animate-fade-in-up relative z-10">
             ABOUT US
             <span class="block h-1 w-24 bg-brand-green mt-4 rounded-full"></span>
         </h2>
@@ -87,7 +90,7 @@
                 <i data-lucide="history" class="w-10 h-10 text-brand-green"></i>
                 Our History & Structure
             </h3>
-            <div class="space-y-4 text-lg md:text-xl text-gray-700 leading-relaxed">
+            <div class="space-y-4 text-lg md:text-2xl text-gray-800 leading-relaxed">
                 <p><strong>Zaidi ya Misuli Resource Centre</strong> was formally registered in <strong
                         class="text-brand-black">2025</strong> in Kenya as an umbrella organization dedicated to
                     supporting individuals and families affected by muscular dystrophy and other disabilities.</p>
@@ -106,7 +109,7 @@
     <section class="pb-24 px-6 max-w-7xl mx-auto">
         <h3 class="font-display font-bold text-4xl md:text-5xl mb-12 reveal text-center md:text-left">Executive
             Directors</h3>
-        <p class="text-lg text-gray-600 mb-12 reveal max-w-3xl">Our leadership structure is designed as a metric system,
+        <p class="text-xl text-gray-600 mb-12 reveal max-w-3xl">Our leadership structure is designed as a metric system,
             focusing on roles and responsibilities that transcends individuals to ensure institutional longevity.</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
@@ -119,24 +122,25 @@
                 <div>
                     <div class="flex items-center gap-3 mb-2">
                         <h4 class="font-display font-bold text-2xl md:text-3xl">Faith Njahĩra Wangarĩ</h4>
-                        <a href="https://linkedin.com" class="text-linkedin hover:scale-125 transition-transform"
-                            aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/faithnjahirawangari/" target="_blank"
+                            rel="noopener noreferrer" class="text-linkedin hover:scale-125 transition-transform"
+                            aria-label="Faith's LinkedIn Profile">
                             <i data-lucide="linkedin" class="w-7 h-7 fill-current"></i>
                         </a>
                     </div>
                     <p class="text-brand-green font-bold text-sm tracking-widest uppercase mb-4">Founder &
                         Executive Director</p>
                     <p class="text-brand-green font-bold text-sm tracking-widest uppercase mb-4">Our Story</p>
-                    <p class="text-gray-700 leading-relaxed">
+                    <p class="text-base md:text-lg text-gray-800 leading-relaxed">
                         Our Founder, Faith started raising awareness on muscular dystrophy in 2013 through an informal
                         peer support group (Muscular Dystrophy Society Kenya) to connect families and loved ones.
                     </p>
-                    <p class="text-gray-700 leading-relaxed mt-4">
+                    <p class="text-base md:text-lg text-gray-800 leading-relaxed mt-4">
                         Zaidi ya Misuli Resource Centre, registered in 2025, works to respond to gaps in knowledge
                         around muscular dystrophy and other disabilities among decision makers and stakeholders in
                         different sectors.
                     </p>
-                    <p class="text-gray-700 leading-relaxed mt-4">
+                    <p class="text-base md:text-lg text-gray-800 leading-relaxed mt-4">
                         Zaidi ya Misuli is grounded in Disability Justice Principles: Interdependence, Collective
                         Liberation and Wholeness.
                     </p>
@@ -152,23 +156,24 @@
                 <div>
                     <div class="flex items-center gap-3 mb-2">
                         <h4 class="font-display font-bold text-2xl md:text-3xl">Margaret Wangarĩ Gachĩgĩ</h4>
-                        <a href="https://linkedin.com" class="text-linkedin hover:scale-125 transition-transform"
-                            aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/margaret-gachigi/" target="_blank"
+                            rel="noopener noreferrer" class="text-linkedin hover:scale-125 transition-transform"
+                            aria-label="Margaret's LinkedIn Profile">
                             <i data-lucide="linkedin" class="w-7 h-7 fill-current"></i>
                         </a>
                     </div>
                     <p class="text-brand-green font-bold text-sm tracking-widest uppercase mb-4">Executive Director</p>
                     <p class="text-brand-green font-bold text-sm tracking-widest uppercase mb-4">Operations & Excellence
                     </p>
-                    <p class="text-gray-700 leading-relaxed">
+                    <p class="text-base md:text-lg text-gray-800 leading-relaxed">
                         Margaret brings a wealth of experience and a passion for operational excellence to her role.
                     </p>
-                    <p class="text-gray-700 leading-relaxed mt-4">
+                    <p class="text-base md:text-lg text-gray-800 leading-relaxed mt-4">
                         She is responsible for overseeing the organisation's <strong>day-to-day operations</strong>,
                         ensuring <strong>efficient resource allocation</strong>, and managing <strong>internal
                             teams</strong>.
                     </p>
-                    <p class="text-gray-700 leading-relaxed mt-4">
+                    <p class="text-base md:text-lg text-gray-800 leading-relaxed mt-4">
                         Her leadership is essential in maintaining a productive work environment, implementing effective
                         policies, and driving continuous improvement across all pillars of Zaidi ya Misuli.
                     </p>
@@ -182,10 +187,10 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                 <div class="flex items-center gap-4">
-                    <img src="rose-logo.png" alt="Logo" class="w-12 h-12 object-contain">
+                    <img src="rose-logo.webp" alt="Zaidi ya Misuli Footer Logo" class="w-12 h-12 object-contain">
                     <span class="font-display font-bold text-xl">Zaidi ya Misuli Resource Centre</span>
                 </div>
-                <div class="flex gap-8 text-sm font-medium">
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-sm font-medium">
                     <a href="/about" class="hover:text-brand-green transition-colors">About</a>
                     <a href="/pillars" class="hover:text-brand-green transition-colors">Pillars</a>
                     <a href="/resources" class="hover:text-brand-green transition-colors">Resources</a>
@@ -198,36 +203,49 @@
         </div>
     </footer>
 
+
     <!-- Accessibility Widget -->
     <button id="a11y-toggle"
-        class="fixed bottom-8 right-6 z-50 bg-brand-black text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-2"
-        title="Accessibility Tools">
+        class="fixed bottom-8 right-6 z-50 bg-brand-black text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center gap-2"
+        title="Accessibility Tools" aria-label="Open accessibility menu">
         <i data-lucide="accessibility" class="w-8 h-8"></i>
     </button>
     <div id="a11y-widget"
         class="fixed top-24 right-0 h-[80vh] w-72 bg-white shadow-2xl border-l border-gray-200 z-40 p-6 overflow-y-auto rounded-l-xl">
         <div class="flex justify-between items-center mb-6">
             <h3 class="font-bold text-xl font-display">Accessibility</h3>
-            <button onclick="toggleWidget()" class="text-gray-500 hover:text-red-500"><i data-lucide="x"></i></button>
+            <button onclick="toggleWidget()" class="text-gray-500 hover:text-red-500 transition-colors"
+                aria-label="Close accessibility menu">
+                <i data-lucide="x"></i>
+            </button>
         </div>
         <div class="space-y-3">
-            <button onclick="adjustText(5)" class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i
-                    data-lucide="type"></i> Increase Text</button>
-            <button onclick="adjustText(-5)" class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i
-                    data-lucide="minus"></i> Decrease Text</button>
+            <button onclick="adjustText(5)"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="type"></i> Increase Text
+            </button>
+            <button onclick="adjustText(-5)"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="minus"></i> Decrease Text
+            </button>
             <button onclick="toggleFilter('grayscale-mode')"
-                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i data-lucide="eye-off"></i>
-                Grayscale</button>
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="eye-off"></i> Grayscale
+            </button>
             <button onclick="toggleFilter('high-contrast')"
-                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i data-lucide="contrast"></i> Dark
-                Mode</button>
-            <button onclick="toggleDyslexic()" class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border"><i
-                    data-lucide="spell-check"></i> Dyslexic Font</button>
-            <button onclick="resetA11y()" class="w-full p-4 bg-gray-100 text-red-600 rounded-lg flex gap-3 mt-4"><i
-                    data-lucide="rotate-ccw"></i> Reset</button>
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="contrast"></i> Dark Mode
+            </button>
+            <button onclick="toggleDyslexic()"
+                class="w-full p-4 hover:bg-gray-100 rounded-lg flex gap-3 border border-gray-200 transition-colors">
+                <i data-lucide="spell-check"></i> Dyslexic Font
+            </button>
+            <button onclick="resetA11y()"
+                class="w-full p-4 bg-gray-100 text-red-600 rounded-lg flex gap-3 mt-4 hover:bg-gray-200 transition-colors">
+                <i data-lucide="rotate-ccw"></i> Reset
+            </button>
         </div>
     </div>
-
     <script type="module" src="main.js"></script>
 
 </body>
