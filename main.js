@@ -122,7 +122,8 @@ function initMobileMenu() {
 
     if (!menuBtn || !mobileMenu) return;
 
-    menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent bubbling since lucide.createIcons removes e.target
         const isHidden = mobileMenu.classList.contains('hidden');
         if (isHidden) {
             mobileMenu.classList.remove('hidden');

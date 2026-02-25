@@ -36,11 +36,14 @@ img {
 /* ------------- Base Enhancements ---------- */
 html {
     scroll-behavior: smooth;
+    font-size: 100%;
 }
 
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #ffffff;
+    line-height: 1.6;
 }
 
 /* ------------- Keyframe Animations -------- */
