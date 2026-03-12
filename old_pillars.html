@@ -1,125 +1,250 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaidi ya Misuli Resource Centre</title>
-    <!-- FAVICON ADDED HERE -->
-    <link rel="icon" type="image/png" href="favicon.png">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { 'brand-green': '#32CD32', 'brand-black': '#111111' },
-                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Inter', 'sans-serif'] },
-                    boxShadow: { 'swiss-hover': '8px 8px 0px 0px #32CD32' }
-                }
-            }
-        }
-    </script>
-    <style>
-        html { scroll-behavior: smooth; font-size: 100%; } 
-        body { -webkit-font-smoothing: antialiased; line-height: 1.6; }
-        #a11y-widget, #a11y-widget button, #a11y-toggle { font-size: 16px !important; }
-        #a11y-widget { transition: transform 0.3s ease-in-out; transform: translateX(100%); }
-        #a11y-widget.open { transform: translateX(0); }
-        .pillar-card { transition: all 0.3s ease-out; border: 2px solid #111111; }
-        .pillar-card:hover { border-color: #32CD32; transform: translateY(-4px); box-shadow: 6px 6px 0px 0px #32CD32; }
-        .high-contrast { background-color: black !important; color: yellow !important; }
-        .high-contrast * { border-color: yellow !important; background-color: black !important; color: yellow !important; }
-        .links-underline a { text-decoration: underline !important; text-decoration-color: #32CD32 !important; }
-    </style>
-</head>
-<body class="bg-white text-brand-black transition-all duration-300">
-
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur z-50 py-4 border-b border-gray-100">
-        <div class="max-w-[90rem] mx-auto px-6 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-4 group">
-                <img src="zaidi-icon.svg" alt="Logo" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform">
-                <h1 class="font-display font-extrabold text-2xl md:text-3xl tracking-tight text-brand-black leading-none">Zaidi ya Misuli <br class="md:hidden">Resource Centre</h1>
-            </a>
-            <div class="hidden xl:flex space-x-8 text-lg font-bold font-display">
-                <a href="/" class="hover:text-brand-green transition">Home</a>
-                <a href="/about" class="hover:text-brand-green transition">About Us</a>
-                <a href="/pillars" class="text-brand-green">Our Pillars</a>
-                <a href="/resources" class="hover:text-brand-green transition">Resources</a>
-                <a href="/contact" class="hover:text-brand-green transition">Contact</a>
-            </div>
-            <button class="xl:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i data-lucide="menu" class="w-10 h-10"></i></button>
-        </div>
-        <div id="mobile-menu" class="hidden xl:hidden bg-white border-t p-6 space-y-4 shadow-xl">
-            <a href="/" class="block font-bold text-xl">Home</a>
-            <a href="/about" class="block font-bold text-xl">About Us</a>
-            <a href="/pillars" class="block font-bold text-brand-green text-xl">Our Pillars</a>
-            <a href="/resources" class="block font-bold text-xl">Resources</a>
-            <a href="/contact" class="block font-bold text-xl">Contact</a>
-        </div>
-    </nav>
-
-    <section class="pt-40 pb-24 px-6 max-w-7xl mx-auto">
-        <h2 class="font-display font-bold text-6xl mb-16 border-b-4 border-brand-green inline-block pb-2">OUR PILLARS</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="pillar-card p-10 bg-white">
-                <div class="bg-brand-green w-16 h-16 flex items-center justify-center text-white mb-8 rounded shadow-md group-hover:scale-110 transition">
-                    <i data-lucide="book-open" class="w-8 h-8"></i>
-                </div>
-                <h3 class="font-display font-bold text-3xl mb-6">Education & Training</h3>
-                <p class="text-xl text-gray-800">Training teachers/educators, healthcare professionals of all cadres, religious/spiritual practitioners and other relevant stakeholders on muscular dystrophy and other disabilities. Building capacity across communities to ensure dignity and access for all.</p>
-            </div>
-            <div class="pillar-card p-10 bg-white">
-                <div class="bg-brand-green w-16 h-16 flex items-center justify-center text-white mb-8 rounded shadow-md">
-                    <i data-lucide="users" class="w-8 h-8"></i>
-                </div>
-                <h3 class="font-display font-bold text-3xl mb-6">Research</h3>
-                <p class="text-xl text-gray-800">Bridging knowledge gaps on muscular dystrophy and disability using feminist and decolonial approaches. Prioritising lived experiences of disability or having loved ones with disabilities and centering community voices in our work.</p>
-            </div>
-            <div class="pillar-card p-10 bg-white">
-                <div class="bg-brand-green w-16 h-16 flex items-center justify-center text-white mb-8 rounded shadow-md">
-                    <i data-lucide="heart" class="w-8 h-8"></i>
-                </div>
-                <h3 class="font-display font-bold text-3xl mb-6">Wholeness</h3>
-                <p class="text-xl text-gray-800">Mind, body, and spirit wellness. Focus on play, grief and mourning, music, and dance. Creating spaces for joy, healing, and authentic expression.</p>
-            </div>
-        </div>
-
-        <div class="mt-20 border-t-2 border-brand-black pt-16">
-            <h3 class="font-display font-extrabold text-4xl md:text-5xl leading-tight tracking-tight">
-                Together, these pillars create a foundation for lasting change, one that honors the full humanity of every person.
-            </h3>
-        </div>
-    </section>
-
-    <footer class="bg-brand-black text-white py-12 text-center text-base mt-auto">
-        <p>&copy; 2025 Zaidi ya Misuli Resource Centre.</p>
-    </footer>
-
-    <button id="a11y-toggle" class="fixed bottom-8 right-6 z-50 bg-brand-black text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-2" title="Accessibility Tools"><i data-lucide="accessibility" class="w-8 h-8"></i></button>
-    <div id="a11y-widget" class="fixed top-24 right-0 h-[80vh] w-72 bg-white shadow-2xl border-l border-gray-200 z-40 p-6 overflow-y-auto rounded-l-xl">
-        <div class="flex justify-between items-center mb-6"><h3 class="font-bold text-xl font-display">Accessibility</h3><button onclick="toggleWidget()" class="text-gray-500 hover:text-red-500"><i data-lucide="x"></i></button></div>
-        <div class="space-y-3">
-             <button onclick="adjustText(5)" class="w-full p-4 hover:bg-gray-100 rounded flex gap-3 border"><i data-lucide="type"></i> Increase Text</button>
-            <button onclick="adjustText(-5)" class="w-full p-4 hover:bg-gray-100 rounded flex gap-3 border"><i data-lucide="minus"></i> Decrease Text</button>
-            <button onclick="toggleFilter('grayscale-mode')" class="w-full p-4 hover:bg-gray-100 rounded flex gap-3 border"><i data-lucide="eye-off"></i> Grayscale</button>
-            <button onclick="toggleFilter('high-contrast')" class="w-full p-4 hover:bg-gray-100 rounded flex gap-3 border"><i data-lucide="contrast"></i> High Contrast</button>
-             <button onclick="resetA11y()" class="w-full p-4 bg-gray-100 text-red-600 rounded flex gap-3 mt-4"><i data-lucide="rotate-ccw"></i> Reset</button>
-        </div>
-    </div>
-    <script>
-        lucide.createIcons();
-        const widget = document.getElementById('a11y-widget');
-        const toggleBtn = document.getElementById('a11y-toggle');
-        toggleBtn.addEventListener('click', toggleWidget);
-        function toggleWidget() { widget.classList.toggle('open'); }
-        let currentZoom = 100;
-        function adjustText(amount) { currentZoom += amount; document.documentElement.style.fontSize = currentZoom + "%"; }
-        function toggleFilter(className) { document.body.classList.toggle(className); }
-        function resetA11y() { document.body.className = "bg-white text-brand-black transition-all duration-300"; document.documentElement.style.fontSize = "100%"; currentZoom = 100; }
-    </script>
-</body>
-</html>
-
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zaidi ya Misuli Resource Centre</title>
+
+    <!-- FAVICON ADDED HERE -->
+
+    <link rel="icon" type="image/png" href="rose-logo.webp">
+
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    colors: { 'brand-green': '#32CD32', 'brand-black': '#111111' },
+
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Inter', 'sans-serif'] },
+
+                    boxShadow: { 'swiss-hover': '8px 8px 0px 0px #32CD32' }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+    <style>
+
+        html { scroll-behavior: smooth; font-size: 100%; } 
+
+        body { -webkit-font-smoothing: antialiased; line-height: 1.6; }
+
+        #a11y-widget, #a11y-widget button, #a11y-toggle { font-size: 16px !important; }
+
+        #a11y-widget { transition: transform 0.3s ease-in-out; transform: translateX(100%); }
+
+        #a11y-widget.open { transform: translateX(0); }
+
+        .pillar-card { transition: all 0.3s ease-out; border: 2px solid #111111; }
+
+        .pillar-card:hover { border-color: #32CD32; transform: translateY(-4px); box-shadow: 6px 6px 0px 0px #32CD32; }
+
+        .high-contrast { background-color: black !important; color: yellow !important; }
+
+        .high-contrast * { border-color: yellow !important; background-color: black !important; color: yellow !important; }
+
+        .links-underline a { text-decoration: underline !important; text-decoration-color: #32CD32 !important; }
+
+    </style>
+
+</head>
+
+<body class="bg-white text-brand-black transition-all duration-300">
+
+
+
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur z-50 py-4 border-b border-gray-100">
+
+        <div class="max-w-[90rem] mx-auto px-6 flex justify-between items-center">
+
+            <a href="/" class="flex items-center gap-4 group">
+
+                <img src="rose-logo.webp" alt="Logo" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform">
+
+                <h1 class="font-display font-extrabold text-2xl md:text-3xl tracking-tight text-brand-black leading-none">Zaidi ya Misuli <br class="md:hidden">Resource Centre</h1>
+
+            </a>
+
+            <div class="hidden xl:flex space-x-8 text-lg font-bold font-display">
+
+                <a href="/" class="hover:text-brand-green transition">Home</a>
+
+                <a href="/about" class="hover:text-brand-green transition">About Us</a>
+
+                <a href="/pillars" class="text-brand-green">Our Pillars</a>
+
+                <a href="/resources" class="hover:text-brand-green transition">Resources</a>
+
+                <a href="/contact" class="hover:text-brand-green transition">Contact</a>
+
+            </div>
+
+            <button class="xl:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i data-lucide="menu" class="w-10 h-10"></i></button>
+
+        </div>
+
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-t p-6 space-y-4 shadow-xl">
+
+            <a href="/" class="block font-bold text-xl">Home</a>
+
+            <a href="/about" class="block font-bold text-xl">About Us</a>
+
+            <a href="/pillars" class="block font-bold text-brand-green text-xl">Our Pillars</a>
+
+            <a href="/resources" class="block font-bold text-xl">Resources</a>
+
+            <a href="/contact" class="block font-bold text-xl">Contact</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <section class="pt-40 pb-24 px-6 max-w-7xl mx-auto">
+
+        <h2 class="font-display font-bold text-6xl mb-16 border-b-4 border-brand-green inline-block pb-2">OUR PILLARS</h2>
+
+        
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div class="pillar-card p-10 bg-white">
+
+                <div class="bg-brand-green w-16 h-16 flex items-center justify-center text-white mb-8 rounded shadow-md group-hover:scale-110 transition">
+
+                    <i data-lucide="book-open" class="w-8 h-8"></i>
+
+                </div>
+
+                <h3 class="font-display font-bold text-3xl mb-6">Education & Training</h3>
+
+                <p class="text-xl text-gray-800">Training teachers/educators, healthcare professionals of all cadres, religious/spiritual practitioners and other relevant stakeholders on muscular dystrophy and other disabilities. Building capacity across communities to ensure dignity and access for all.</p>
+
+            </div>
+
+            <div class="pillar-card p-10 bg-white">
+
+                <div class="bg-brand-green w-16 h-16 flex items-center justify-center text-white mb-8 rounded shadow-md">
+
+                    <i data-lucide="users" class="w-8 h-8"></i>
+
+                </div>
+
+                <h3 class="font-display font-bold text-3xl mb-6">Research</h3>
+
+                <p class="text-xl text-gray-800">Bridging knowledge gaps on muscular dystrophy and disability using feminist and decolonial approaches. Prioritising lived experiences of disability or having loved ones with disabilities and centering community voices in our work.</p>
+
+            </div>
+
+            <div class="pillar-card p-10 bg-white">
+
+                <div class="bg-brand-green w-16 h-16 flex items-center justify-center text-white mb-8 rounded shadow-md">
+
+                    <i data-lucide="heart" class="w-8 h-8"></i>
+
+                </div>
+
+                <h3 class="font-display font-bold text-3xl mb-6">Wholeness</h3>
+
+                <p class="text-xl text-gray-800">Mind, body, and spirit wellness. Focus on play, grief and mourning, music, and dance. Creating spaces for joy, healing, and authentic expression.</p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="mt-20 border-t-2 border-brand-black pt-16">
+
+            <h3 class="font-display font-extrabold text-4xl md:text-5xl leading-tight tracking-tight">
+
+                Together, these pillars create a foundation for lasting change, one that honors the full humanity of every person.
+
+            </h3>
+
+        </div>
+
+    </section>
+
+
+
+    <footer class="bg-brand-black text-white py-12 text-center text-base mt-auto">
+
+        <p>&copy; 2025 Zaidi ya Misuli Resource Centre.</p>
+
+    </footer>
+
+
+
+    <button id="a11y-toggle" class="fixed bottom-8 right-6 z-50 bg-brand-black text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-2" title="Accessibility Tools"><i data-lucide="accessibility" class="w-8 h-8"></i></button>
+
+    <div id="a11y-widget" class="fixed top-24 right-0 h-[80vh] w-72 bg-white shadow-2xl border-l border-gray-200 z-40 p-6 overflow-y-auto rounded-l-xl">
+
+        <div class="flex justify-between items-center mb-6"><h3 class="font-bold text-xl font-display">Accessibility</h3><button onclick="toggleWidget()" class="text-gray-500 hover:text-red-500"><i data-lucide="x"></i></button></div>
+
+        <div class="space-y-3">
+
+             <button onclick="adjustText(5)" class="w-full p-4 hover:bg-gray-100 rounded flex gap-3 border"><i data-lucide="type"></i> Increase Text</button>
+
+            <button onclick="adjustText(-5)" class="w-full p-4 hover:bg-gray-100 rounded flex gap-3 border"><i data-lucide="minus"></i> Decrease Text</button>
+
+            <button onclick="toggleFilter('grayscale-mode')" class="w-full p-4 hover:bg-gray-100 rounded flex gap-3 border"><i data-lucide="eye-off"></i> Grayscale</button>
+
+            <button onclick="toggleFilter('high-contrast')" class="w-full p-4 hover:bg-gray-100 rounded flex gap-3 border"><i data-lucide="contrast"></i> High Contrast</button>
+
+             <button onclick="resetA11y()" class="w-full p-4 bg-gray-100 text-red-600 rounded flex gap-3 mt-4"><i data-lucide="rotate-ccw"></i> Reset</button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        lucide.createIcons();
+
+        const widget = document.getElementById('a11y-widget');
+
+        const toggleBtn = document.getElementById('a11y-toggle');
+
+        toggleBtn.addEventListener('click', toggleWidget);
+
+        function toggleWidget() { widget.classList.toggle('open'); }
+
+        let currentZoom = 100;
+
+        function adjustText(amount) { currentZoom += amount; document.documentElement.style.fontSize = currentZoom + "%"; }
+
+        function toggleFilter(className) { document.body.classList.toggle(className); }
+
+        function resetA11y() { document.body.className = "bg-white text-brand-black transition-all duration-300"; document.documentElement.style.fontSize = "100%"; currentZoom = 100; }
+
+    </script>
+
+</body>
+
+</html>
+
+
+
