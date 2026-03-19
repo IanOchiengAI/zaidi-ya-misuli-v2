@@ -2,6 +2,10 @@
    ZAIDI YA MISULI - INTERACTIVE JAVASCRIPT
    ============================================ */
 import './src/style.css';
+import { inject } from '@vercel/analytics';
+
+// Initialize Vercel Analytics
+inject();
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
