@@ -2,9 +2,17 @@
    ZAIDI YA MISULI - INTERACTIVE JAVASCRIPT
    ============================================ */
 import './src/style.css';
+import { trackPageView } from './src/analytics.js';
+import { fetchContent } from './src/firebase.js';
+
+// Track page view
+trackPageView();
 
 // Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+    // Fetch dynamic content from CMS
+    await initFirebaseCMS();
+
     // Core initializations
     initScrollReveal();
     initNavScrollEffect();
@@ -142,6 +150,165 @@ function initMobileMenu() {
         }
     });
 }
+
+// Utility to safely set text content
+const setField = (id, text) => {
+    const el = document.getElementById(id);
+    if (el && text) el.textContent = text;
+};
+
+// ============================================
+// DYNAMIC CMS ROUTER
+// ============================================
+async function initFirebaseCMS() {
+    const path = window.location.pathname;
+    
+    // Add brief fading class to body to prevent text jumps
+    document.body.classList.add('transition-opacity', 'duration-500', 'opacity-0');
+    
+    if (path === '/' || path.endsWith('index.html')) {
+        await initHome();
+    } else if (path.includes('about')) {
+        await initAbout();
+    } else if (path.includes('pillars')) {
+        await initPillars();
+    } else if (path.includes('resources')) {
+        await initResources();
+    } else if (path.includes('contact')) {
+        await initContact();
+    }
+
+    // Fade back in
+    requestAnimationFrame(() => {
+        document.body.classList.remove('opacity-0');
+    });
+}
+
+// ============================================
+// PAGE-SPECIFIC LOADERS
+// ============================================
+
+async function initHome() {
+    const data = await fetchContent('home');
+    if (!data) return;
+    
+    setField('home-hero-title', data.heroTitle);
+    setField('home-hero-subtitle', data.heroSubtitle);
+    setField('home-hero-description', data.heroDescription);
+    setField('home-cta-text', data.ctaText);
+    setField('home-vision', data.vision);
+    setField('home-cta-title', data.ctaTitle);
+    setField('home-cta-description', data.ctaDescription);
+}
+
+async function initAbout() {
+    const data = await fetchContent('about');
+    if (!data) return;
+
+    setField('about-history-1', data.history1);
+    setField('about-history-2', data.history2);
+    setField('about-history-3', data.history3);
+    setField('about-team1-name', data.team1Name);
+    setField('about-team1-title', data.team1Title);
+    setField('about-team1-bio', data.team1Bio);
+    setField('about-team2-name', data.team2Name);
+    setField('about-team2-title', data.team2Title);
+    setField('about-team2-bio', data.team2Bio);
+    setField('about-summary', data.summary);
+    
+    const t1lnk = document.getElementById('about-team1-linkedin');
+    if (t1lnk && data.team1LinkedIn) {
+        t1lnk.href = data.team1LinkedIn;
+        t1lnk.style.display = 'flex';
+    }
+    const t2lnk = document.getElementById('about-team2-linkedin');
+    if (t2lnk && data.team2LinkedIn) {
+        t2lnk.href = data.team2LinkedIn;
+        t2lnk.style.display = 'flex';
+    }
+}
+
+async function initPillars() {
+    const data = await fetchContent('pillars');
+    if (!data) return;
+
+    setField('pillars-quote', data.quote);
+    setField('pillar1-title', data.pillar1Title);
+    setField('pillar1-description', data.pillar1Description);
+    setField('pillar2-title', data.pillar2Title);
+    setField('pillar2-description', data.pillar2Description);
+    setField('pillar3-title', data.pillar3Title);
+    setField('pillar3-description', data.pillar3Description);
+}
+
+async function initResources() {
+    const data = await fetchContent('resources');
+    if (!data || !data.items) return;
+
+    const grid = document.getElementById('resources-grid');
+    if (!grid) return;
+    
+    grid.innerHTML = ''; // clear hardcoded elements
+    
+    data.items.forEach(item => {
+        const isMedia = item.category === 'media';
+        const colorClass = isMedia ? 'text-coral' : 'text-primary';
+        const bgClass = isMedia ? 'bg-coral/10' : 'bg-primary/10';
+        
+        const iconSvg = isMedia 
+            ? `<i data-lucide="play-circle" class="w-6 h-6 ${colorClass}"></i>`
+            : `<i data-lucide="file-text" class="w-6 h-6 ${colorClass}"></i>`;
+
+        const descHTML = item.description 
+            ? `<p class="text-sm text-neutral-dark mb-4 group-hover:text-neutral-900 line-clamp-2">${item.description}</p>`
+            : '';
+
+        grid.innerHTML += `
+            <a href="${item.url}" target="_blank" rel="noopener noreferrer" 
+               class="group relative bg-white/70 backdrop-blur-md border border-white/50 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block h-full flex flex-col">
+                
+                <div class="absolute inset-0 bg-gradient-to-br from-white/60 to-white/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                
+                <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="${bgClass} p-3 rounded-xl">
+                            ${iconSvg}
+                        </div>
+                        <i data-lucide="external-link" class="w-5 h-5 text-neutral opacity-0 group-hover:opacity-100 group-hover:${colorClass} transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                    </div>
+                    
+                    <h3 class="font-display font-bold text-xl text-primary-dark mb-2 group-hover:text-primary transition-colors">${item.title}</h3>
+                    
+                    ${descHTML}
+                    
+                    <div class="mt-auto pt-4 flex items-center justify-between border-t border-neutral-light/50">
+                        <span class="text-xs font-bold uppercase tracking-wider ${colorClass} bg-white px-3 py-1 rounded-full shadow-sm">
+                            ${item.category}
+                        </span>
+                        <span class="text-xs font-semibold text-neutral flex items-center gap-1 group-hover:${colorClass} transition-colors">
+                            View resource <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                        </span>
+                    </div>
+                </div>
+            </a>
+        `;
+    });
+    
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+async function initContact() {
+    const data = await fetchContent('contact');
+    if (!data) return;
+
+    setField('contact-welcome', data.welcome);
+    setField('contact-location', data.location);
+    setField('contact-email', data.email);
+    setField('contact-phone', data.phone);
+}
+
 
 /**
  * Accessibility Widget Functionality

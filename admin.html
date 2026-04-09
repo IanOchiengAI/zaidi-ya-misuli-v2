@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Zaidi ya Misuli</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="rose-logo.webp">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/admin.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-gray-50 text-brand-black">
+
+    <!-- ========== LOGIN SCREEN ========== -->
+    <div id="login-screen" class="min-h-screen flex items-center justify-center px-6">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-10">
+                <img src="rose-logo.webp" alt="Zaidi ya Misuli Logo" class="w-20 h-20 mx-auto mb-6">
+                <h1 class="font-display font-black text-3xl tracking-tight">Admin Dashboard</h1>
+                <p class="text-gray-500 mt-2">Zaidi ya Misuli Resource Centre</p>
+            </div>
+            <form id="login-form" class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                <div class="space-y-5">
+                    <div>
+                        <label for="login-email"
+                            class="block font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Email</label>
+                        <input type="email" id="login-email" required
+                            class="input-enhanced w-full border-2 border-gray-200 p-4 text-lg rounded-xl bg-white">
+                    </div>
+                    <div>
+                        <label for="login-password"
+                            class="block font-bold text-sm uppercase tracking-wider text-gray-500 mb-2">Password</label>
+                        <input type="password" id="login-password" required
+                            class="input-enhanced w-full border-2 border-gray-200 p-4 text-lg rounded-xl bg-white">
+                    </div>
+                    <div id="login-error" class="hidden text-red-500 text-sm font-medium bg-red-50 p-3 rounded-lg">
+                    </div>
+                    <button type="submit"
+                        class="btn-glow w-full bg-brand-green text-white font-bold py-4 text-lg rounded-xl shadow-lg hover:bg-brand-green-dark transition-all duration-300">
+                        Sign In
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== ADMIN DASHBOARD ========== -->
+    <div id="admin-dashboard" class="hidden">
+
+        <!-- Top Bar -->
+        <header
+            class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur z-50 border-b border-gray-200 px-6 py-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img src="rose-logo.webp" alt="Logo" class="w-10 h-10">
+                    <div>
+                        <h1 class="font-display font-bold text-xl">Dashboard</h1>
+                        <p class="text-xs text-gray-500" id="admin-email"></p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="/" target="_blank"
+                        class="hidden sm:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-brand-green transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i> View Site
+                    </a>
+                    <button id="logout-btn"
+                        class="flex items-center gap-2 bg-gray-100 hover:bg-red-50 hover:text-red-600 px-4 py-2 rounded-lg text-sm font-bold transition-all">
+                        <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="pt-20 max-w-7xl mx-auto px-6 pb-12">
+
+            <!-- Stats Cards -->
+            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10" id="stats-section">
+                <div class="admin-stat-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-brand-green/10 rounded-xl flex items-center justify-center">
+                            <i data-lucide="eye" class="w-5 h-5 text-brand-green"></i>
+                        </div>
+                        <span class="text-sm font-bold text-gray-500 uppercase tracking-wider">Total Views</span>
+                    </div>
+                    <p class="text-3xl font-black" id="stat-total-views">—</p>
+                </div>
+                <div class="admin-stat-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
+                            <i data-lucide="calendar" class="w-5 h-5 text-blue-500"></i>
+                        </div>
+                        <span class="text-sm font-bold text-gray-500 uppercase tracking-wider">This Month</span>
+                    </div>
+                    <p class="text-3xl font-black" id="stat-month-views">—</p>
+                </div>
+                <div class="admin-stat-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center">
+                            <i data-lucide="file-text" class="w-5 h-5 text-purple-500"></i>
+                        </div>
+                        <span class="text-sm font-bold text-gray-500 uppercase tracking-wider">Pages</span>
+                    </div>
+                    <p class="text-3xl font-black">5</p>
+                </div>
+                <div class="admin-stat-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center">
+                            <i data-lucide="clock" class="w-5 h-5 text-orange-500"></i>
+                        </div>
+                        <span class="text-sm font-bold text-gray-500 uppercase tracking-wider">Last Visit</span>
+                    </div>
+                    <p class="text-lg font-bold" id="stat-last-visit">—</p>
+                </div>
+            </section>
+
+            <!-- Page Tabs -->
+            <div class="flex flex-wrap gap-2 mb-8" id="page-tabs">
+                <button class="admin-tab active" data-page="home">
+                    <i data-lucide="home" class="w-4 h-4"></i> Home
+                </button>
+                <button class="admin-tab" data-page="about">
+                    <i data-lucide="users" class="w-4 h-4"></i> About
+                </button>
+                <button class="admin-tab" data-page="pillars">
+                    <i data-lucide="layers" class="w-4 h-4"></i> Pillars
+                </button>
+                <button class="admin-tab" data-page="resources">
+                    <i data-lucide="book-open" class="w-4 h-4"></i> Resources
+                </button>
+                <button class="admin-tab" data-page="contact">
+                    <i data-lucide="mail" class="w-4 h-4"></i> Contact
+                </button>
+            </div>
+
+            <!-- Editor Panels -->
+            <div id="editor-panels">
+
+                <!-- HOME PAGE EDITOR -->
+                <div class="editor-panel active" data-panel="home">
+                    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+                        <h2 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+                            <i data-lucide="home" class="w-6 h-6 text-brand-green"></i>
+                            Home Page
+                        </h2>
+                        <div class="space-y-6">
+                            <div class="admin-field">
+                                <label>Hero Title</label>
+                                <input type="text" id="home-hero-title" placeholder="e.g. Zaidi ya Misuli Resource Centre">
+                            </div>
+                            <div class="admin-field">
+                                <label>Hero Subtitle</label>
+                                <input type="text" id="home-hero-subtitle" placeholder="e.g. Beyond Muscles.">
+                            </div>
+                            <div class="admin-field">
+                                <label>Hero Description</label>
+                                <textarea id="home-hero-description" rows="3"
+                                    placeholder="e.g. Demystifying, researching, and supporting..."></textarea>
+                            </div>
+                            <div class="admin-field">
+                                <label>CTA Button Text</label>
+                                <input type="text" id="home-cta-text" placeholder="e.g. SEE OUR WORK">
+                            </div>
+                            <div class="admin-field">
+                                <label>Vision Statement</label>
+                                <textarea id="home-vision" rows="3"
+                                    placeholder="A loving society where..."></textarea>
+                            </div>
+                            <div class="admin-field">
+                                <label>CTA Section Title</label>
+                                <input type="text" id="home-cta-title" placeholder="e.g. Ready to make a difference?">
+                            </div>
+                            <div class="admin-field">
+                                <label>CTA Section Description</label>
+                                <textarea id="home-cta-description" rows="2"
+                                    placeholder="Whether through partnership..."></textarea>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex items-center gap-4">
+                            <button class="save-btn" data-save="home">
+                                <i data-lucide="save" class="w-5 h-5"></i> Save Home Page
+                            </button>
+                            <span class="save-status" id="home-status"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABOUT PAGE EDITOR -->
+                <div class="editor-panel" data-panel="about">
+                    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+                        <h2 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+                            <i data-lucide="users" class="w-6 h-6 text-brand-green"></i>
+                            About Page
+                        </h2>
+                        <div class="space-y-6">
+                            <div class="admin-field">
+                                <label>History Paragraph 1</label>
+                                <textarea id="about-history-1" rows="3"></textarea>
+                            </div>
+                            <div class="admin-field">
+                                <label>History Paragraph 2</label>
+                                <textarea id="about-history-2" rows="3"></textarea>
+                            </div>
+                            <div class="admin-field">
+                                <label>History Paragraph 3</label>
+                                <textarea id="about-history-3" rows="3"></textarea>
+                            </div>
+                            <hr class="my-4 border-gray-200">
+                            <h3 class="font-bold text-lg">Team Member 1</h3>
+                            <div class="admin-field">
+                                <label>Name</label>
+                                <input type="text" id="about-team1-name">
+                            </div>
+                            <div class="admin-field">
+                                <label>Title</label>
+                                <input type="text" id="about-team1-title">
+                            </div>
+                            <div class="admin-field">
+                                <label>Bio</label>
+                                <textarea id="about-team1-bio" rows="4"></textarea>
+                            </div>
+                            <div class="admin-field">
+                                <label>LinkedIn URL</label>
+                                <input type="url" id="about-team1-linkedin">
+                            </div>
+                            <hr class="my-4 border-gray-200">
+                            <h3 class="font-bold text-lg">Team Member 2</h3>
+                            <div class="admin-field">
+                                <label>Name</label>
+                                <input type="text" id="about-team2-name">
+                            </div>
+                            <div class="admin-field">
+                                <label>Title</label>
+                                <input type="text" id="about-team2-title">
+                            </div>
+                            <div class="admin-field">
+                                <label>Bio</label>
+                                <textarea id="about-team2-bio" rows="4"></textarea>
+                            </div>
+                            <div class="admin-field">
+                                <label>LinkedIn URL</label>
+                                <input type="url" id="about-team2-linkedin">
+                            </div>
+                            <div class="admin-field">
+                                <label>Leadership Summary</label>
+                                <textarea id="about-summary" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex items-center gap-4">
+                            <button class="save-btn" data-save="about">
+                                <i data-lucide="save" class="w-5 h-5"></i> Save About Page
+                            </button>
+                            <span class="save-status" id="about-status"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PILLARS PAGE EDITOR -->
+                <div class="editor-panel" data-panel="pillars">
+                    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+                        <h2 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+                            <i data-lucide="layers" class="w-6 h-6 text-brand-green"></i>
+                            Pillars Page
+                        </h2>
+                        <div class="space-y-6">
+                            <div class="admin-field">
+                                <label>Foundation Quote</label>
+                                <textarea id="pillars-quote" rows="3"></textarea>
+                            </div>
+                            <hr class="my-4 border-gray-200">
+                            <h3 class="font-bold text-lg">Pillar 1</h3>
+                            <div class="admin-field">
+                                <label>Title</label>
+                                <input type="text" id="pillar1-title">
+                            </div>
+                            <div class="admin-field">
+                                <label>Description</label>
+                                <textarea id="pillar1-description" rows="3"></textarea>
+                            </div>
+                            <hr class="my-4 border-gray-200">
+                            <h3 class="font-bold text-lg">Pillar 2</h3>
+                            <div class="admin-field">
+                                <label>Title</label>
+                                <input type="text" id="pillar2-title">
+                            </div>
+                            <div class="admin-field">
+                                <label>Description</label>
+                                <textarea id="pillar2-description" rows="3"></textarea>
+                            </div>
+                            <hr class="my-4 border-gray-200">
+                            <h3 class="font-bold text-lg">Pillar 3</h3>
+                            <div class="admin-field">
+                                <label>Title</label>
+                                <input type="text" id="pillar3-title">
+                            </div>
+                            <div class="admin-field">
+                                <label>Description</label>
+                                <textarea id="pillar3-description" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex items-center gap-4">
+                            <button class="save-btn" data-save="pillars">
+                                <i data-lucide="save" class="w-5 h-5"></i> Save Pillars Page
+                            </button>
+                            <span class="save-status" id="pillars-status"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RESOURCES PAGE EDITOR -->
+                <div class="editor-panel" data-panel="resources">
+                    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+                        <h2 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+                            <i data-lucide="book-open" class="w-6 h-6 text-brand-green"></i>
+                            Resources Page
+                        </h2>
+                        <p class="text-gray-500 mb-6 text-sm">Add or edit resource links that appear on the Resources page.</p>
+                        <div id="resources-list" class="space-y-6">
+                            <!-- Dynamic resource items will be rendered here -->
+                        </div>
+                        <button id="add-resource-btn"
+                            class="mt-6 flex items-center gap-2 text-brand-green font-bold hover:underline">
+                            <i data-lucide="plus-circle" class="w-5 h-5"></i> Add Resource
+                        </button>
+                        <div class="mt-8 flex items-center gap-4">
+                            <button class="save-btn" data-save="resources">
+                                <i data-lucide="save" class="w-5 h-5"></i> Save Resources
+                            </button>
+                            <span class="save-status" id="resources-status"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTACT PAGE EDITOR -->
+                <div class="editor-panel" data-panel="contact">
+                    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+                        <h2 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+                            <i data-lucide="mail" class="w-6 h-6 text-brand-green"></i>
+                            Contact Page
+                        </h2>
+                        <div class="space-y-6">
+                            <div class="admin-field">
+                                <label>Welcome Message</label>
+                                <textarea id="contact-welcome" rows="3"></textarea>
+                            </div>
+                            <div class="admin-field">
+                                <label>Location</label>
+                                <input type="text" id="contact-location">
+                            </div>
+                            <div class="admin-field">
+                                <label>Email</label>
+                                <input type="email" id="contact-email">
+                            </div>
+                            <div class="admin-field">
+                                <label>Phone</label>
+                                <input type="tel" id="contact-phone">
+                            </div>
+                        </div>
+                        <div class="mt-8 flex items-center gap-4">
+                            <button class="save-btn" data-save="contact">
+                                <i data-lucide="save" class="w-5 h-5"></i> Save Contact Page
+                            </button>
+                            <span class="save-status" id="contact-status"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="admin-toast hidden">
+        <i data-lucide="check-circle" class="w-5 h-5"></i>
+        <span id="toast-text">Saved successfully!</span>
+    </div>
+
+    <script type="module" src="/src/admin.js"></script>
+</body>
+
+</html>

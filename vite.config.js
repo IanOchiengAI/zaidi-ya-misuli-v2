@@ -16,6 +16,7 @@ export default defineConfig({
                 resources: resolve(import.meta.dirname, 'resources.html'),
                 success: resolve(import.meta.dirname, 'success.html'),
                 notFound: resolve(import.meta.dirname, '404.html'),
+                admin: resolve(import.meta.dirname, 'admin.html'),
             },
         },
     },

@@ -1,0 +1,233 @@
+/* ============================================
+   ZAIDI YA MISULI - ADMIN DASHBOARD STYLES
+   ============================================ */
+
+/* ------------- Admin Tabs -------------- */
+.admin-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: #6b7280;
+    background: white;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.admin-tab:hover {
+    border-color: #32CD32;
+    color: #32CD32;
+}
+
+.admin-tab.active {
+    background: #32CD32;
+    color: white;
+    border-color: #32CD32;
+    box-shadow: 0 4px 15px rgba(50, 205, 50, 0.3);
+}
+
+/* ------------- Editor Panels ----------- */
+.editor-panel {
+    display: none;
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.editor-panel.active {
+    display: block;
+}
+
+/* ------------- Form Fields ------------- */
+.admin-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.admin-field label {
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6b7280;
+}
+
+.admin-field input,
+.admin-field textarea,
+.admin-field select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    background: #f9fafb;
+    transition: all 0.2s ease;
+    color: #111111;
+}
+
+.admin-field input:focus,
+.admin-field textarea:focus,
+.admin-field select:focus {
+    outline: none;
+    border-color: #32CD32;
+    box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.15);
+    background: white;
+}
+
+.admin-field textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ------------- Save Button ------------- */
+.save-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background: #32CD32;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(50, 205, 50, 0.3);
+}
+
+.save-btn:hover {
+    background: #28a428;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(50, 205, 50, 0.4);
+}
+
+.save-btn:active {
+    transform: translateY(0);
+}
+
+.save-btn.saving {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* ------------- Save Status ------------- */
+.save-status {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #32CD32;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.save-status.visible {
+    opacity: 1;
+}
+
+/* ------------- Stat Cards -------------- */
+.admin-stat-card {
+    transition: all 0.2s ease;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ------------- Toast Notification ------ */
+.admin-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #111111;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.admin-toast.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.admin-toast.hidden {
+    display: flex;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+/* ------------- Resource Item Card ------ */
+.resource-item {
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.resource-item:hover {
+    border-color: #d1d5db;
+}
+
+.resource-item .delete-resource {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fee2e2;
+    color: #ef4444;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.resource-item .delete-resource:hover {
+    background: #ef4444;
+    color: white;
+}
+
+/* ------------- Loading Spinner --------- */
+.admin-spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ------------- Responsive -------------- */
+@media (max-width: 640px) {
+    .admin-tab {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .admin-tab i {
+        display: none;
+    }
+}
