@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     initHeroLogoTilt();
     initCardTiltEffect();
     initA11y();
+    initSocialWidget();
     initStaggerAnimation();
 
     // Initialize Lucide icons
@@ -426,5 +427,37 @@ function initA11y() {
     const toggleBtn = document.getElementById('a11y-toggle');
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => a11yWidget.toggle());
+    }
+}
+
+/**
+ * Social Media Floating Widget
+ */
+function initSocialWidget() {
+    const toggle = document.getElementById('social-toggle');
+    const mobile = document.getElementById('social-mobile');
+
+    if (toggle && mobile) {
+        toggle.addEventListener('click', () => {
+            mobile.classList.toggle('open');
+            const icon = toggle.querySelector('i, svg');
+            if (icon) {
+                const isOpen = mobile.classList.contains('open');
+                icon.setAttribute('data-lucide', isOpen ? 'x' : 'share-2');
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobile.contains(e.target) && !toggle.contains(e.target)) {
+                mobile.classList.remove('open');
+                const icon = toggle.querySelector('i, svg');
+                if (icon) {
+                    icon.setAttribute('data-lucide', 'share-2');
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                }
+            }
+        });
     }
 }
