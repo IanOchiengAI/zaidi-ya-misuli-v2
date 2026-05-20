@@ -438,7 +438,8 @@ function initSocialWidget() {
     const mobile = document.getElementById('social-mobile');
 
     if (toggle && mobile) {
-        toggle.addEventListener('click', () => {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobile.classList.toggle('open');
             const icon = toggle.querySelector('i, svg');
             if (icon) {
