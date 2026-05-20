@@ -932,8 +932,11 @@ body {
    FLOATING SOCIAL MEDIA WIDGET
    ============================================ */
 :root {
+    --color-linkedin: #0077b5;
     --color-youtube: #FF0000;
     --color-instagram: #E4405F;
+    --color-tiktok: #fe2c55;
+    --color-facebook: #1877F2;
     --color-instagram-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
 }
 
@@ -990,6 +993,16 @@ body {
     background: var(--color-instagram);
     background-image: var(--color-instagram-gradient);
     box-shadow: 0 4px 15px rgba(228, 64, 95, 0.4);
+}
+
+.social-float-link[data-platform="tiktok"]:hover {
+    background: var(--color-tiktok);
+    box-shadow: 0 4px 15px rgba(254, 44, 85, 0.4);
+}
+
+.social-float-link[data-platform="facebook"]:hover {
+    background: var(--color-facebook);
+    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4);
 }
 
 .social-float-link svg, .social-float-link i {
@@ -1071,6 +1084,8 @@ body {
 }
 
 .footer-social-link:hover { transform: translateY(-3px); }
-.footer-social-link[data-platform="linkedin"]:hover { color: #0077b5; border-color: #0077b5; box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3); }
-.footer-social-link[data-platform="youtube"]:hover { color: #FF0000; border-color: #FF0000; box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2); }
-.footer-social-link[data-platform="instagram"]:hover { color: #E4405F; border-color: #E4405F; box-shadow: 0 4px 12px rgba(228, 64, 95, 0.3); }
+.footer-social-link[data-platform="linkedin"]:hover { color: var(--color-linkedin); border-color: var(--color-linkedin); box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3); }
+.footer-social-link[data-platform="youtube"]:hover { color: var(--color-youtube); border-color: var(--color-youtube); box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2); }
+.footer-social-link[data-platform="instagram"]:hover { color: var(--color-instagram); border-color: var(--color-instagram); box-shadow: 0 4px 12px rgba(228, 64, 95, 0.3); }
+.footer-social-link[data-platform="tiktok"]:hover { color: var(--color-tiktok); border-color: var(--color-tiktok); box-shadow: 0 4px 12px rgba(254, 44, 85, 0.3); }
+.footer-social-link[data-platform="facebook"]:hover { color: var(--color-facebook); border-color: var(--color-facebook); box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3); }
