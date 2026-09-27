@@ -2,17 +2,41 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    // Admins: the same accounts as the Zaidi web app, and only with a verified email.
+    // Before 2026-09-26 any signed-in account could rewrite site content.
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in [
+          'sunoflicker@gmail.com',
+          'clara@zaidiyamisuli.org',
+          'admin@zaidiyamisuli.org'
+        ];
+    }
+
     match /content/{pageId} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if isAdmin();
     }
+
+    // Page-view counters written anonymously by src/analytics.js. A write may only add 1 to
+    // totalViews and touch at most 4 fields, so counters can't be wiped or rewritten.
+    // Only the admin dashboard reads them.
     match /analytics/{docId} {
-      allow read, write: if true;
+      allow read: if isAdmin();
+      allow create: if request.resource.data.totalViews == 1
+                    && request.resource.data.keys().size() <= 4;
+      allow update: if request.resource.data.totalViews == resource.data.get('totalViews', 0) + 1
+                    && request.resource.data.diff(resource.data).affectedKeys().size() <= 4;
+      allow delete: if isAdmin();
     }
+
     match /changelog/{entryId} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if isAdmin();
     }
+
     match /{document=**} {
       allow read, write: if false;
     }
